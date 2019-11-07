@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.BrowserFactory;
+import utils.VerifyEquality;
 
 public class LoginWithInvalidCredentials {
     public static void main(String[] args) throws InterruptedException {
@@ -18,11 +19,7 @@ public class LoginWithInvalidCredentials {
         String expectedErrorMsg = "Invalid user name or password.";
         WebElement actualResult = driver.findElement(By.xpath("//*[@id=\"login-form\"]/fieldset/div[1]/div"));
         String actualErrorMsg = actualResult.getText();
-        if(actualErrorMsg.equals(expectedErrorMsg)){
-            System.out.println("Test Passed");
-        }else{
-            System.out.println("Test Failed");
-        }
+        VerifyEquality.verifyEquality(expectedErrorMsg, actualErrorMsg);
 
         Thread.sleep(2000);
         driver.close();
