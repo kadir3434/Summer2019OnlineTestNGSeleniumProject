@@ -24,6 +24,8 @@ public class LoginWithValidCredentials {
         String actualResultTitle = driver.getTitle();
         String expectedResultURL = "https://qa2.vytrack.com/";
         String actualResultURL = driver.getCurrentUrl();
+        System.out.println(actualResultTitle);
+        System.out.println(actualResultURL);
         if (expectedResultURL.equals(actualResultURL) && expectedResultTitle.equals(actualResultTitle)){
             System.out.println("Test Passed");
         }else {
